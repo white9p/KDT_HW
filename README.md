@@ -1,2 +1,10 @@
 # KDT_HW
-KDT Homework
+Repo to do KDT_H
+
+## Prequisite
+
+## Installation
+
+## How to use
+
+## Contribute
