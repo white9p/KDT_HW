@@ -1,0 +1,54 @@
+body{
+    margin:0;
+    padding:0;
+}
+.container{
+width:980px;
+margin:auto;
+}
+.container-left{
+   float:left;
+   padding:20px 0;
+}
+.logo{
+    float:left;
+    padding-right:5px;
+}
+.logo img{
+    display:block;
+    
+}
+.menu{
+    float:left;
+    
+}
+.menu-item{
+    float:left;
+    padding:8px 10px;
+}
+.clearfix::after{
+    content:"";
+    clear:both;
+    display:block;
+}
+.container-right{
+    float:right;
+    padding:20px 0;
+}
+.input_search{
+    float:left;
+    padding:8px 10px;
+}
+.sign-in{
+    float:left;
+    padding:8px 10px;
+
+}
+.sign-up{
+    box-sizing: border-box;
+    float:left;
+    padding:4px;
+    border:1px solid black;
+    border-radius: 6px;
+    margin:4px 0 4px 10px;
+}
