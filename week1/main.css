@@ -1,3 +1,5 @@
+@import "reset.css";
+
 body {
     margin: 0;
     padding: 0;
@@ -24,8 +26,6 @@ body {
 
 .menu {
     float: left;
-    list-style: none;
-    margin: 0;
 }
 
 .menu-item {
