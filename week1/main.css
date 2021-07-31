@@ -5,18 +5,26 @@ body {
     padding: 0;
 }
 
+.header {}
+
 .container {
-    width: 980px;
+    display: flex;
+    justify-content: space-between;
     margin: auto;
+    max-width: 1280px;
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .container-left {
-    float: left;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
     padding: 20px 0;
 }
 
 .logo {
-    float: left;
     padding-right: 5px;
 }
 
@@ -25,38 +33,62 @@ body {
 }
 
 .menu {
-    float: left;
+    display: flex;
+    justify-content: left;
 }
 
 .menu-item {
-    float: left;
+    display: flex;
+    align-items: center;
     padding: 8px 10px;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: block;
 }
 
 .container-right {
-    float: right;
+    display: flex;
+    justify-content: left;
+    position: relative;
     padding: 20px 0;
 }
 
+.container-right button {
+    font-size: 16px;
+}
+
 .input_search {
-    float: left;
-    padding: 8px 10px;
+    padding: 0 10px;
+}
+
+.input_search input {
+
+    width: 240px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+.header-search-key-slash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: "";
+    color: gray;
+    width: 19px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 25px;
+    border: 1px solid gray;
+    top: 28px;
+    left: 220px;
 }
 
 .sign-in {
-    float: left;
     padding: 8px 10px;
+
 }
 
 .sign-up {
     box-sizing: border-box;
-    float: left;
     padding: 4px;
     border: 1px solid black;
     border-radius: 6px;
