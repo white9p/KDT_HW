@@ -137,3 +137,8 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+button {
+    border: none;
+    background: transparent;
+}
