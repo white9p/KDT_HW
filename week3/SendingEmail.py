@@ -56,8 +56,6 @@ def send_mail(name, addr, subject, contents, attachment=None):
     smtp.sendmail(SMTP_USER, addr, msg.as_string())
     smtp.close()
 
-# 프로젝트 폴더에 있는 email_list.xlsx 파일에 이메일 받을 사람들의 정보를 입력하세요.
-
 
 # email_list.xlsx 파일의 이름과 메일정보 가져오기
 wb = load_workbook('email_list.xlsx', read_only=True)
