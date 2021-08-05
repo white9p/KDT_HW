@@ -1,3 +1,4 @@
+from openpyxl import load_workbook
 import os
 from NaverNewsCrawler import NaverNewsCrawler
 from email.mime.text import MIMEText
@@ -28,39 +29,47 @@ def send_mail(name, addr, subject, contents, attachment=None):
         print('Wrong email')
         return
 
+    msg = MIMEMultipart('alternative')
+    if attachment:
+        msg = MIMEMultipart('mixed')
 
-msg = MIMEMultipart('alternative')
-if attachment:
-    msg = MIMEMultipart('mixed')
+    msg['From'] = SMTP_USER
+    msg['To'] = addr
+    msg['Subject'] = name + '님, ' + subject
 
-msg['From'] = SMTP_USER
-msg['To'] = addr
-msg['Subject'] = name + '님, ' + subject
+    text = MIMEText(contents, _charset='utf-8')
+    msg.attach(text)
 
-text = MIMEText(contents, _charset='utf-8')
-msg.attach(text)
+    if attachment:
+        from email.mime.base import MIMEBase
+        from email import encoders
 
-if attachment:
-    from email.mime.base import MIMEBase
-    from email import encoders
+        file_data = MIMEBase('application', 'octect-stream')
+        file_data.set_payload(open(attachment, 'rb').read())
+        encoders.encode_base64(file_data)
 
-file_data = MIMEBase('application', 'octect-stream')
-file_data.set_payload(open(attachment, 'rb').read())
-encoders.encode_base64(file_data)
+        filename = os.path.basename(attachment)
+        file_data.add_header('Content-Disposition',
+                             'attachment; filename="' + filename + '"')
+        msg.attach(file_data)
 
-filename = os.path.basename(attachment)
-file_data.add_header('Content-Disposition',
-                     'attachment; filename="' + filename + '"')
-msg.attach(file_data)
-
-smtp = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
-smtp.login(SMTP_USER, SMTP_PASSWORD)
-smtp.sendmail(SMTP_USER, addr, msg.as_string())
-smtp.close()
+    smtp = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
+    smtp.login(SMTP_USER, SMTP_PASSWORD)
+    smtp.sendmail(SMTP_USER, addr, msg.as_string())
+    smtp.close()
 
 # 프로젝트 폴더에 있는 email_list.xlsx 파일에 이메일 받을 사람들의 정보를 입력하세요.
 
+
 # 엑셀 파일의 정보를 읽어올 수 있는 모듈을 import하세요.
+wb = load_workbook('email_list.xlsx', read_only=True)
+data = wb.active
+
+for idx, row in enumerate(data.iter_rows(max_col=3)):
+    if idx == 0:
+        continue
+    print(row[1].value)
+    print(row[2].value)
 
 # email_list.xlsx 파일을 읽어와 해당 사람들에게 수집한 뉴스 정보 엑셀 파일을 send_mail 함수를 이용해 전송하세요.
 send_mail()
