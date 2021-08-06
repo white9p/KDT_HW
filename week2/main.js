@@ -14,7 +14,8 @@ const data = [
 
 // 사용자 입력 받기
 const line = prompt('최대 금액을 입력해주세요.');
-const amount = +line;
+// +기호로 강제로 숫자형으로 변환해주기 보다는 parseInt나 Number로 변환해준다
+const amount = parseInt(line);  
 
 // 주어진 금액으로 살 수 있는 가장 비싼 상품을 구함
 const item = getItemByAmount(data, amount);
