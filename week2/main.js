@@ -33,16 +33,13 @@ function getItemByAmount(data, amount){
     if(typeof amount !== 'number'){ //isNan의 Null값에대한 함정으로 typeof 로 바꿔 변수의 유효성 검사를 한다
         return null;
     }
-    //데이터 가격 기준 오름차순 정렬 (더 저렴한 순부터 비싼 순으로)
-    data.sort((a,b) => a.price - b.price);
+    console.log(typeof amount)
+    //amount보다 작거나 같은 data.price들 만 모아 살 수 있는 상품들만 모아 온다.
+    const availableItems = data.filter(d => d.price <= amount );
     
-    for(let i=0; i<data.length; i++) {
-        if (amount > data[i].price) { // 사용자가 입력한 amount가 상품가격보다 클때 다음 상품으로 넘어간다.
-            continue;
-        } else if (amount == data[i].price) {  // 입력한 amount가 상품 가격과 같을 때 해당상품 반환
-            return data[i];
-        } else { //입력한 amount가 상품 가격보다 작을 때 이전 상품을 반환 (만약 amount가 첫번째 해당 상품보다 가격이 작으면 data[-1]이 되고 그 값이 undefined가 되므로 falsy한 값이 됨)
-            return data[i-1];
-        }    
+    // 살수 있는 물품들을 가격 기준 내림차순 정렬
+    availableItems.sort((a,b) => b.price - a.price);
+    //정렬된것중 가장 비싼 객체 추출
+    return availableItems[0]
     }
-}
+
