@@ -28,8 +28,9 @@ const msg = item ?
 alert(msg);
 
 // 아래에 getItemByAmount 함수를 작성하세요.
+//숫자가 아닌 다른 것을 입력 했을 때 null을 반환한다.
 function getItemByAmount(data, amount){
-    if(isNaN(amount)){ //숫자가 아닌 다른 것을 입력 했을 때 null을 반환한다.
+    if(typeof amount !== 'number'){ //isNan의 Null값에대한 함정으로 typeof 로 바꿔 변수의 유효성 검사를 한다
         return null;
     }
     //데이터 가격 기준 오름차순 정렬 (더 저렴한 순부터 비싼 순으로)
