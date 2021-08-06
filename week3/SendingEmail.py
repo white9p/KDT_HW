@@ -5,6 +5,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
 import re
+
 # 사용자에게 뉴스 키워드 검색어를 입력받는다.
 user_input = input('검색어를 입력하세요:')
 crawler = NaverNewsCrawler(user_input)
@@ -13,15 +14,15 @@ crawler = NaverNewsCrawler(user_input)
 excel_filename = input('엑셀 파일명을 입력하세요:')
 crawler.get_news(excel_filename + ".xlsx")
 
-
 # gmail 발송 기능에 필요한 계정 정보를 입력
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 465
 SMTP_USER = 'fastcampus@gmail.com'
 SMTP_PASSWORD = ''  # 보안상 쓰지 않았습니다:)
 
-
 # 메일 발송에 필요한 send_mail 함수
+
+
 def send_mail(name, addr, subject, contents, attachment=None):
     if not re.match('(^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', addr):
         print('Wrong email')
