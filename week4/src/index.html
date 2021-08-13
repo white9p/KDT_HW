@@ -4,16 +4,19 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <!-- 01. 기본경로 설정하기(이곳에 작성) -->
-        <base href="./assets/">
+        <!-- 01. 기본경로를 설정하였습니다. -->
+        <base href="./assets/"> 
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
+        <!-- 파비콘을 설정하였습니다. -->
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="./css/index.css" />
+        <!-- reset.css 를 추가 하였습니다. -->
+        <link rel="stylesheet" href="css/reset.css" /> 
+        <link rel="stylesheet" href="css/index.css" />
         <link
             href="https://fonts.googleapis.com/css?family=Montserrat|Nanum+Gothic&display=swap"
             rel="stylesheet"
         />
-        <!-- 02. 브라우저 타이틀 표시하기(이곳에 작성) -->
+        <!-- 02. 브라우저 타이틀 표시하였습니다. -->
         <title>My BLOG</title>
     </head>
     <body>
@@ -24,10 +27,10 @@
                 <nav>
                     <ul class="menu">
                         <li class="menu-item">
-                            <a href="/week4/src/index.html#article1"> 게시글#1</a>
+                            <a href="/week4/src/index.html#article1" title="게시글 1번으로 이동합니다."> 게시글#1</a>
                         </li>
                         <li class="menu-item">
-                            <a href="/week4/src/index.html#article2"> 게시글#2</a>
+                            <a href="/week4/src/index.html#article2" title="게시글 2번으로 이동합니다."> 게시글#2</a>
                         </li>
                     </ul>
                 </nav>
@@ -179,6 +182,7 @@
                         </p>
                     </header>
                     <hr class="separator" />
+                    <!-- 머릿글이 숫자로 매겨지게 설정하였습니다. -->
                     <ol type="1">
                         <li>
                             동해물과 백두산이 마르고 닳도록 하느님이 보우하사
@@ -209,13 +213,15 @@
                     <ul>
                         <li>
                             <a href="https://www.fastcampus.co.kr"
-                             target="_blank">
+                             target="_blank" 
+                             title="fastcampus를 새창으로 띄웁니다.">
                                 패스트캠퍼스(새창)
                             </a>
                         </li>
                         <li>
                             <a href="https://www.fastcampus.co.kr"
-                             target="">
+                             target=""
+                             title="fastcampus를 현재 페이지에서 불러옵니다.">
                                 바이트 디그리(현재창)
                             </a>
                         </li>
